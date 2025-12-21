@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  
+  
+  <title>CTMusic</title>
+  
+  <!-- Favicon and App Icons -->
+  <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
+  <!-- <link rel="apple-touch-icon" href="static/images/favicon.ico"> -->
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+</head>
+<body>
+
+<!-- Scroll to Top Button -->
+<button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<main id="main-content">
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2">CTMusic: A Traditional Chinese Music Dataset Towards Text-to-Music Generation</h1>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">
+              <a>Zixing Zhang</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a>Yimin Cao</a><sup>1</sup><sup>*</sup>,</span>
+            <span class="author-block">
+              <a>Haotian Guo</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a>Bin Wang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a>Jing Han</a><sup>3</sup><sup>*</sup>
+            </span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup>College of Computer Science and Electronic Engineering, Hunan University, China</span><br>
+            <span class="author-block"><sup>2</sup>Shenzhen Research Institute, Hunan University, China</span><br>
+            <span class="author-block"><sup>3</sup>Department of Computer Science and Technology, University of Cambridge, UK</span>
+            <span class="eql-cntrb"><small><br><sup>*</sup>Corresponding Authors</small></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser image/figure -->
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/pipeline.png" alt="CTMusic Dataset Construction Pipeline" style="width: 100%; border-radius: 8px;">
+      <h2 class="subtitle has-text-centered">
+        <strong>CTMusic Dataset Construction Pipeline:</strong> Audio data was collected from digital albums and video platforms, filtered by automated scripts and human reviewers, standardized through preprocessing, and annotated by music experts with LLM augmentation.
+      </h2>
+    </div>
+  </div>
+</section> -->
+<!-- End teaser -->
+
+
+<!-- Dataset Statistics -->
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Dataset Description</h2>
+      <div class="content has-text-justified">
+        <p>
+          <strong>CTMusic</strong> is a Chinese traditional music dataset specifically designed for text-to-music generation. It comprises 741 meticulously annotated text-music pairs with a total duration of 42+ hours, covering a diverse range of traditional Chinese instruments in both solo and ensemble settings.
+        </p>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-10">
+          <div class="box">
+            <table class="table is-fullwidth is-hoverable">
+              <thead>
+                <tr>
+                  <th>Subset</th>
+                  <th class="has-text-centered">#Samples</th>
+                  <th class="has-text-centered">Hours</th>
+                  <th class="has-text-centered">Mean Duration (s)</th>
+                  <th class="has-text-centered">Mean Description Length (words)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Solo Set</td>
+                  <td class="has-text-centered">601</td>
+                  <td class="has-text-centered">35.59</td>
+                  <td class="has-text-centered">213.19</td>
+                  <td class="has-text-centered">24</td>
+                </tr>
+                <tr>
+                  <td>Ensemble Set</td>
+                  <td class="has-text-centered">140</td>
+                  <td class="has-text-centered">7.11</td>
+                  <td class="has-text-centered">182.76</td>
+                  <td class="has-text-centered">65</td>
+                </tr>
+                <tr class="has-background-light">
+                  <td><strong>Total</strong></td>
+                  <td class="has-text-centered"><strong>741</strong></td>
+                  <td class="has-text-centered"><strong>42.70</strong></td>
+                  <td class="has-text-centered"><strong>207.44</strong></td>
+                  <td class="has-text-centered"><strong>32</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- Instruments -->
+          <!-- <h3 class="title is-4 has-text-centered" style="margin-top: 2rem;">12 Traditional Chinese Instruments</h3> -->
+          <!-- <div class="columns is-multiline is-centered" style="margin-top: 1rem;">
+            <div class="column is-2 has-text-centered">
+              <div class="box" style="padding: 1rem;">
+                <p style="font-size: 1.5rem;">🎸</p>
+                <p class="is-size-7"><strong>Pipa</strong><br>琵琶</p>
+              </div>
+            </div>
+            <div class="column is-2 has-text-centered">
+              <div class="box" style="padding: 1rem;">
+                <p style="font-size: 1.5rem;">🎵</p>
+                <p class="is-size-7"><strong>Guzheng</strong><br>古筝</p>
+              </div>
+            </div>
+            <div class="column is-2 has-text-centered">
+              <div class="box" style="padding: 1rem;">
+                <p style="font-size: 1.5rem;">🎺</p>
+                <p class="is-size-7"><strong>Suona</strong><br>唢呐</p>
+              </div>
+            </div>
+            <div class="column is-2 has-text-centered">
+              <div class="box" style="padding: 1rem;">
+                <p style="font-size: 1.5rem;">🪈</p>
+                <p class="is-size-7"><strong>Dizi</strong><br>笛子</p>
+              </div>
+            </div>
+            <div class="column is-2 has-text-centered">
+              <div class="box" style="padding: 1rem;">
+                <p style="font-size: 1.5rem;">🎻</p>
+                <p class="is-size-7"><strong>Erhu</strong><br>二胡</p>
+              </div>
+            </div>
+            <div class="column is-2 has-text-centered">
+              <div class="box" style="padding: 1rem;">
+                <p style="font-size: 1.5rem;">🎶</p>
+                <p class="is-size-7"><strong>Sheng</strong><br>笙</p>
+              </div>
+            </div>
+            <div class="column is-2 has-text-centered">
+              <div class="box" style="padding: 1rem;">
+                <p style="font-size: 1.5rem;">🪘</p>
+                <p class="is-size-7"><strong>Xun</strong><br>埙</p>
+              </div>
+            </div>
+            <div class="column is-2 has-text-centered">
+              <div class="box" style="padding: 1rem;">
+                <p style="font-size: 1.5rem;">🎼</p>
+                <p class="is-size-7"><strong>Guqin</strong><br>古琴</p>
+              </div>
+            </div>
+            <div class="column is-2 has-text-centered">
+              <div class="box" style="padding: 1rem;">
+                <p style="font-size: 1.5rem;">🥁</p>
+                <p class="is-size-7"><strong>Yangqin</strong><br>扬琴</p>
+              </div>
+            </div>
+            <div class="column is-2 has-text-centered">
+              <div class="box" style="padding: 1rem;">
+                <p style="font-size: 1.5rem;">🪕</p>
+                <p class="is-size-7"><strong>Zhongruan</strong><br>中阮</p>
+              </div>
+            </div>
+            <div class="column is-2 has-text-centered">
+              <div class="box" style="padding: 1rem;">
+                <p style="font-size: 1.5rem;">🎹</p>
+                <p class="is-size-7"><strong>Xiao</strong><br>箫</p>
+              </div>
+            </div>
+            <div class="column is-2 has-text-centered">
+              <div class="box" style="padding: 1rem;">
+                <p style="font-size: 1.5rem;">🔔</p>
+                <p class="is-size-7"><strong>& More</strong><br>更多</p>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Dataset Statistics -->
+
+
+<!-- Comparison -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Comparison to prior TCM datasets</h2>
+      <div class="columns is-centered">
+        <div class="column is-10 is-size-6">
+          <div class="box">
+            <table class="table is-fullwidth is-hoverable">
+              <thead>
+                <tr>
+                  <th>Dataset</th>
+                  <th class="has-text-centered">Main Task</th>
+                  <th class="has-text-centered">Format</th>
+                  <th class="has-text-centered">Annotation</th>
+                  <th class="has-text-centered">Size</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="https://arxiv.org/abs/2108.08470">ChMusic</a></td>
+                  <td class="has-text-centered">Instrument Recognition</td>
+                  <td class="has-text-centered">Audio</td>
+                  <td class="has-text-centered">label</td>
+                  <td class="has-text-centered">1.4 hours</td>
+                </tr>
+                <tr>
+                  <td><a href="https://arxiv.org/abs/2503.18802">CCMusic</a></td>
+                  <td class="has-text-centered">Instrument recognition, Playing technique classification<br>Mode classification, Singing style classification</td>
+                  <td class="has-text-centered">Audio</td>
+                  <td class="has-text-centered">label</td>
+                  <td class="has-text-centered">56 hours</td>
+                </tr>
+                <tr>
+                  <td><a href="https://arxiv.org/abs/2409.02421">FolkDB</a></td>
+                  <td class="has-text-centered">Symbolic Music Generation</td>
+                  <td class="has-text-centered">MIDI</td>
+                  <td class="has-text-centered">-</td>
+                  <td class="has-text-centered">11 hours</td>
+                </tr>
+                <tr>
+                  <td><a href="https://chinglohsiu.github.io/files/MGD.html">MGD</a></td>
+                  <td class="has-text-centered">Song Generation</td>
+                  <td class="has-text-centered">MIDI</td>
+                  <td class="has-text-centered">-</td>
+                  <td class="has-text-centered">-</td>
+                </tr>
+                <tr>
+                  <td><a href="https://zenodo.org/records/5744336">CBFdataset</a></td>
+                  <td class="has-text-centered">Playing technique detection</td>
+                  <td class="has-text-centered">Audio</td>
+                  <td class="has-text-centered">label</td>
+                  <td class="has-text-centered">2.6 hours</td>
+                </tr>
+                <tr>
+                  <td><a href="https://arxiv.org/abs/2209.06496">CCOM-HuQin</a></td>
+                  <td class="has-text-centered">Playing technique detection</td>
+                  <td class="has-text-centered">Audio, Video, Score</td>
+                  <td class="has-text-centered">label</td>
+                  <td class="has-text-centered">4.3 hours</td>
+                </tr>
+                <tr>
+                  <td><a href="https://ieeexplore.ieee.org/document/9565488">JinYue Database</a></td>
+                  <td class="has-text-centered">Emotion, scene, and imagery recognition</td>
+                  <td class="has-text-centered">Audio</td>
+                  <td class="has-text-centered">label</td>
+                  <td class="has-text-centered">-</td>
+                <tr>
+                  <td><a href="https://archives.ismir.net/ismir2020/paper/000157.pdf">GQ39</a></td>
+                  <td class="has-text-centered">Playing technique detection, Mode detection</td>
+                  <td class="has-text-centered">Audio</td>
+                  <td class="has-text-centered">label</td>
+                  <td class="has-text-centered">0.6 hours</td>
+                </tr>
+                <tr class="has-background-light">
+                  <td><strong>CTMusic</strong></td>
+                  <td class="has-text-centered"><strong>Text-to-Music Generation</strong></td>
+                  <td class="has-text-centered"><strong>Audio</strong></td>
+                  <td class="has-text-centered"><strong>text description</strong></td>
+                  <td class="has-text-centered"><strong>42.7 hours</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container is-max-desktop">
+      <div class="is-centered">
+        <div class="is-10">
+          <div class="content has-text-justified">
+            <p class="is-size-6" style="margin-bottom: 1rem;">
+              Note: The labels in the table vary depending on the task, such as instrument types, playing techniques, and emotions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- End Comparison -->
+
+
+<!-- Annotation Template -->
+<!-- <section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Annotation Guidelines</h2>
+    <div class="columns is-centered">
+      <div class="column is-10">
+        <div class="box">
+          <h4 class="title is-5">Three-Paragraph Description Template</h4>
+          <div class="content">
+            <article class="message is-dark">
+              <div class="message-header">
+                <p>Paragraph 1: Instrumentation & Overall Impression</p>
+              </div>
+              <div class="message-body">
+                Provide a 1-2 sentences summary of the instrument types and a concise overview of the musical impression.
+              </div>
+            </article>
+            <article class="message is-dark">
+              <div class="message-header">
+                <p>Paragraph 2: Musical Development & Variation</p>
+              </div>
+              <div class="message-body">
+                In 2-3 sentences, objectively describe the progression and variations of the piece, focusing on aspects such as timbre, melody, and rhythmic changes, while avoiding introducing subjective or emotional information.
+              </div>
+            </article>
+            <article class="message is-dark">
+              <div class="message-header">
+                <p>Paragraph 3: Musical Emotion & Application Scenarios</p>
+              </div>
+              <div class="message-body">
+                Conclude with 1-2 sentences that capture the expressive emotions conveyed by the music and suggest plausible contexts of use.
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End Annotation Template -->
+
+
+<!-- Experimental Results -->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Experimental Results</h2>
+      <div class="columns is-centered">
+        <div class="column is-11">
+          <div class="box" style="overflow-x: auto;">
+            <table class="table is-fullwidth is-hoverable is-striped" style="font-size: 0.9rem;">
+              <thead>
+                <tr>
+                  <th rowspan="2">Model</th>
+                  <th colspan="5" class="has-text-centered" style="background-color: #f0f0f0;">Stage 1 (Solo Subset)</th>
+                  <th colspan="5" class="has-text-centered" style="background-color: #e8e8e8;">Stage 2 (Ensemble Subset)</th>
+                </tr>
+                <tr>
+                  <th class="has-text-centered">FD<sub>openl3</sub>↓</th>
+                  <th class="has-text-centered">KL<sub>passt</sub>↓</th>
+                  <th class="has-text-centered">CLAP↑</th>
+                  <th class="has-text-centered">OVL↑</th>
+                  <th class="has-text-centered">TA↑</th>
+                  <th class="has-text-centered">FD<sub>openl3</sub>↓</th>
+                  <th class="has-text-centered">KL<sub>passt</sub>↓</th>
+                  <th class="has-text-centered">CLAP↑</th>
+                  <th class="has-text-centered">OVL↑</th>
+                  <th class="has-text-centered">TA↑</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SA-pretrained</td>
+                  <td class="has-text-centered">315.23</td>
+                  <td class="has-text-centered">1.61</td>
+                  <td class="has-text-centered">0.32</td>
+                  <td class="has-text-centered">2.97</td>
+                  <td class="has-text-centered">1.63</td>
+                  <td class="has-text-centered">279.02</td>
+                  <td class="has-text-centered">0.84</td>
+                  <td class="has-text-centered">0.40</td>
+                  <td class="has-text-centered">3.06</td>
+                  <td class="has-text-centered">1.60</td>
+                </tr>
+                <tr>
+                  <td>SA-LoRA</td>
+                  <td class="has-text-centered">171.19</td>
+                  <td class="has-text-centered">0.49</td>
+                  <td class="has-text-centered">0.36</td>
+                  <td class="has-text-centered">3.33</td>
+                  <td class="has-text-centered">3.35</td>
+                  <td class="has-text-centered">136.21</td>
+                  <td class="has-text-centered">0.43</td>
+                  <td class="has-text-centered">0.50</td>
+                  <td class="has-text-centered">3.72</td>
+                  <td class="has-text-centered">3.42</td>
+                </tr>
+                <tr class="has-background-warning-light">
+                  <td><strong>SA-TTT (Ours)</strong></td>
+                  <td class="has-text-centered"><strong>173.15</strong></td>
+                  <td class="has-text-centered"><strong>0.48</strong></td>
+                  <td class="has-text-centered"><strong>0.37</strong></td>
+                  <td class="has-text-centered"><strong>3.36</strong></td>
+                  <td class="has-text-centered"><strong>3.36</strong></td>
+                  <td class="has-text-centered has-background-success-light"><strong>134.06</strong></td>
+                  <td class="has-text-centered has-background-success-light"><strong>0.39</strong></td>
+                  <td class="has-text-centered has-background-success-light"><strong>0.51</strong></td>
+                  <td class="has-text-centered has-background-success-light"><strong>3.86</strong></td>
+                  <td class="has-text-centered has-background-success-light"><strong>3.54</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="notification is-info is-light" style="margin-top: 1.5rem;">
+            <h4 class="title is-5"><i class="fas fa-lightbulb"></i> Key Findings</h4>
+            <ul>
+              <li><strong>CTMusic enables effective domain adaptation:</strong> SA-LoRA significantly outperforms the pretrained model across all metrics (e.g., FD<sub>openl3</sub>: 315→171)</li>
+              <li><strong>TTT layers excel on complex ensemble music:</strong> SA-TTT shows consistent improvements in Stage 2, demonstrating enhanced capacity for modeling intricate instrumental interactions</li>
+              <li><strong>Subjective evaluations confirm quality:</strong> 10 external participants rated SA-TTT highest for both overall quality (OVL) and text alignment (TA)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End Experimental Results -->
+
+
+<!-- Audio Samples (placeholder) -->
+<section class="section hero is-light">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">Annotated Audio Samples</h2>
+    <!-- <div class="notification is-warning is-light has-text-centered">
+      <i class="fas fa-info-circle"></i> Audio samples will be available upon paper acceptance.
+    </div> -->
+    
+    <!-- Sample placeholders -->
+    <div class="is-multiline is-centered" style="margin-top: 1.5rem;">
+      <div class="is-6">
+        <div class="box">
+          <p class="is-size-7" style="margin-bottom: 1rem;">
+            <strong>Annotation:</strong>
+            "This traditional Chinese composition showcases the high-pitched suona's vibrant melody, backed by the sheng's steady harmonic chords.
+            The suona plays bright, sustained notes with playful descending slides, following repetitive, symmetrical phrases, while the sheng maintains a consistent rhythmic pulse; the tempo quickens slightly with denser runs, then decelerates as the suona holds a prolonged note, fading with the sheng into silence.
+            Its dynamic shifts and vivid timbral contrasts reflect both folk vitality and traditional structural discipline."
+          <audio controls controlslist="nodownload" style="width: 100%;" disabled>
+            <source src="static/audio/guyue_16.mp3" type="audio/mpeg">
+          </audio>
+
+          <p class="is-size-7" style="margin-bottom: 1rem;">
+            <strong>Annotation:</strong>
+            "This excerpt begins with a percussion ensemble, followed by a melodic section led by sheng and bamboo flutes. The tempo gradually accelerates, anchored by sustained wind instrument notes.
+            The percussion introduces the piece through syncopated drum and cymbal patterns. The sheng and bamboo flutes then enter with a unison melody dominated by elongated and resonant tones. As the music progresses, the tempo steadily increases. Percussion shifts to denser rhythmic layers, reinforcing the momentum. The final section abruptly halts during a full ensemble unison.
+            The music merges meditative melodic continuity with rhythmic urgency, reflecting traditional music's ceremonial essence."
+          <audio controls controlslist="nodownload" style="width: 100%;" disabled>
+            <source src="static/audio/guyue_25.mp3" type="audio/mpeg">
+          </audio>
+
+          <p class="is-size-7" style="margin-bottom: 1rem;">
+            <strong>Annotation:</strong>
+            "This is a piece music with a cheerful style. The music is played in a combination of Chinese gongs and drums, bamboo flute, guan and other traditional Chinese instruments.
+            It continues the regularity and melodic quality of ancient music and integrates the sounds of multiple instruments skillfully. The guan plays the main melody, and the gongs and drums run through the whole song as accompaniment.
+            Under the cheerful style, it integrates the liveliness and energy of folk flavor, making the audience feel as if they are in a grand festival."
+          <audio controls controlslist="nodownload" style="width: 100%;" disabled>
+            <source src="static/audio/guyue_26.mp3" type="audio/mpeg">
+          </audio>
+
+          <p class="is-size-7" style="margin-bottom: 1rem;">
+            <strong>Annotation:</strong>
+            "The music piece is played with sheng, bamboo flutes, drums, cymbals, guan, and yinluo.
+            It starts with a forceful synchronized strike from the drum and yinluo. The sheng and guan follow with a unison melody composed of sustained, resonant notes, supported by sparse cymbal accents. Midway, the bamboo flute emerges as the focal point, performing extended melodic phrases while the sheng and guan shift to harmonic accompaniment. The percussion maintains a consistent pulse with occasional drum rolls and cymbal swells. The final section reunites all instruments in a synchronized restatement of the main melody.
+            The music combines ceremonial solemnity with restrained rhythmic energy, making it suitable for traditional rituals or formal cultural ceremonies."
+          <audio controls controlslist="nodownload" style="width: 100%;" disabled>
+            <source src="static/audio/guyue_28.mp3" type="audio/mpeg">
+          </audio>
+
+          <p class="is-size-7" style="margin-bottom: 1rem;">
+            <strong>Annotation:</strong>
+            "The piece features bamboo flute, sheng, drums, gongs, and zheng.
+            It starts with a spirited unison opening and transitions into flute-led melodies supported by sheng harmonies. Drums maintain a steady pulse with occasional gong and cymbal accents, while the zheng's tremolos sustain each phrase. Phrases repeat symmetrically with minimal variation. In the finale, the tempo eases and the ensemble restates the melody together, ending on a unified percussive strike.
+            The music exudes a festive and jubilant mood."
+          <audio controls controlslist="nodownload" style="width: 100%;" disabled>
+            <source src="static/audio/guyue_38.mp3" type="audio/mpeg">
+          </audio>
+
+          <p class="is-size-7" style="margin-bottom: 1rem;">
+            <strong>Annotation:</strong>
+            "This music piece features a solo performance by the Chinese bamboo flute.
+            The melody is highly ornate, decorated with frequent grace notes and rapid trills that showcase the flute's versatility. The rhythmic progression is dynamic; while starting with a moderate flow, the tempo occasionally undergoes sudden, sharp accelerations.
+            It evokes a sense of exuberance, reminiscent of birds chirping in a spring forest or a festive celebration."
+          <audio controls controlslist="nodownload" style="width: 100%;" disabled>
+            <source src="static/audio/bamboo_flute_48.mp3" type="audio/mpeg">
+          </audio>
+
+          <p class="is-size-7" style="margin-bottom: 1rem;">
+            <strong>Annotation:</strong>
+            "This recording features the suona as the lead instrument.
+            The piece maintains a moderate and steady tempo throughout, providing a stable rhythmic foundation. The timbre is notably thin and sharp, cutting through the acoustic space with high-frequency energy. The melody progresses linearly.
+            It is suitable for a scene describing rural life or a folk gathering in a village."
+          <audio controls controlslist="nodownload" style="width: 100%;" disabled>
+            <source src="static/audio/suona_14.mp3" type="audio/mpeg">
+          </audio>
+
+          <p class="is-size-7" style="margin-bottom: 1rem;">
+            <strong>Annotation:</strong>
+            "This piece captures the distinctively breathy and hollow sound of the xun.
+            The tempo is exceedingly slow, characterized by long, sustained notes that emphasize the instrument's earthy resonance and audible breath sounds. The pitch range is very narrow, creating a drone-like or chanting texture with almost no melodic modulation or pitch shifting.
+            It evokes a feeling of mystery, desolation, or historical reflection."
+          <audio controls controlslist="nodownload" style="width: 100%;" disabled>
+            <source src="static/audio/xun_3.mp3" type="audio/mpeg">
+          </audio>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Audio Samples -->
+
+
+<!-- Release Plan and License-->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="is-centered">
+      <div class="is-10">
+        <h2 class="title is-3 has-text-centered">Dataset Access and License</h2>
+        <div class="content has-text-justified">
+          <p>
+            We released the dataset including text descriptions and audio URLs <a href="https://pan.baidu.com/s/12fZE6evTwJaSaPVwJM6Ryg?pwd=6jwu">here</a>.<br>
+            URLs rather than audio files are released to respect copyright, following established practices such as <a href="https://research.google.com/audioset/index.html">AudioSet</a> and <a href="https://huggingface.co/datasets/google/MusicCaps">MusicCaps</a>. The dataset will be licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> <strong>for research purposes</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Release Plan and License-->
+
+
+<footer class="footer ">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
